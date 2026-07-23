@@ -5,5 +5,9 @@ secondaryBackgroundColor = "#F4F5F7"
 textColor = "#1D1D1B"
 font = "sans serif"
 
+[server]
+maxUploadSize = 1024
+maxMessageSize = 1024
+
 [browser]
 gatherUsageStats = false
