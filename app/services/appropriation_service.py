@@ -17,10 +17,22 @@ def resolve_operational_columns(frame: pd.DataFrame) -> dict[str, str]:
         "month": ["MES", "MES_ANO", "ANO_MES", "COMPETENCIA"],
         "branch": ["FILIAL", "FILIAL_RESPONSAVEL", "SIGLA_FILIAL"],
         "stage": ["ETAPA", "ETAPA_OPERACIONAL", "TIPO_ETAPA"],
-        "weight": ["PESO", "PESO_APROPRIADO", "PESO_PROJETADO"],
-        "volumes": ["QTD_VOLUMES", "VOLUMES", "VOLUME_APROPRIADO"],
-        "ctes": ["QTD_CTRC", "QTD_CTES", "CTES", "CTRC"],
-        "cubage": ["CUBAGEM", "CUBAGEM_APROPRIADA", "M3"],
+        "weight": ["PESO", "PESO_BASELINE", "PESO_APROPRIADO", "PESO_PROJETADO"],
+        "volumes": [
+            "QTD_VOLUMES",
+            "VOLUMES",
+            "VOLUMES_BASELINE",
+            "VOLUME_APROPRIADO",
+        ],
+        "ctes": [
+            "QTD_CTRC",
+            "QTD_CTES",
+            "QTD_CTES_BASELINE",
+            "CTES_BASELINE",
+            "CTES",
+            "CTRC",
+        ],
+        "cubage": ["CUBAGEM", "CUBAGEM_BASELINE", "CUBAGEM_APROPRIADA", "M3"],
     }
     resolved: dict[str, str] = {}
     for semantic, options in candidates.items():
