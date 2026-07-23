@@ -1,0 +1,13 @@
+# Contrato — Capacidade de veículos
+
+Granularidade: MÊS + FILIAL + TIPO_OPERACAO + TIPO_VEICULO.
+
+Campos esperados:
+
+- VEICULOS_ATUAIS
+- CAPACIDADE_PESO
+- CAPACIDADE_CUBAGEM
+- VIAGENS_DIA
+- UTILIZACAO_MEDIA
+- CUSTO_VEICULO
+- CUSTO_TERCEIRO

@@ -1,0 +1,4 @@
+# Referência funcional do projeto.
+# A configuração executável do Streamlit está em .streamlit/config.toml.
+pagina_inicial: "Resumo Executivo"
+pagina_prioritaria_mvp: "Demandas e Restrições"

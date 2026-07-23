@@ -1,0 +1,8 @@
+app:
+  nome: "S&OP MVP JAMEF"
+  horizonte_meses: 1
+  top_clientes_b2c: 100
+
+paths:
+  baseline: "data/input/134_Baseline_Diario_Cliente_Rota.parquet"
+  apropriacao: "data/input/136_Base_Simulacao_Filial_Etapa.parquet"

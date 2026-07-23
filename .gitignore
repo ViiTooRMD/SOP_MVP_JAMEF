@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.streamlit/secrets.toml
+data/input/*
+data/output/*
+!data/input/.gitkeep
+!data/output/.gitkeep
+*.parquet
+*.csv
+*.xlsx
+.DS_Store

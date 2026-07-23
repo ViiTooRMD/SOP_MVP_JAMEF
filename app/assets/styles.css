@@ -1,0 +1,21 @@
+:root {
+  --jamef-red: #C00D1E;
+  --charcoal: #1D1D1B;
+  --ice: #F4F5F7;
+}
+
+.block-container {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+h1, h2, h3 {
+  color: var(--charcoal);
+}
+
+div[data-testid="stMetric"] {
+  border-left: 4px solid var(--jamef-red);
+  background: #FFFFFF;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
