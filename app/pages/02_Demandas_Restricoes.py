@@ -17,7 +17,7 @@ from components.layout import (
     status_banner,
 )
 from services.appropriation_service import operational_ranking, resolve_operational_columns
-from services.data_loader import load_input
+from services.data_loader import load_input, load_partitioned_input
 from services.demand_service import apply_filters, daily_summary, prepare_baseline, totals
 from services.restriction_service import b2c_clients, simulate_restrictions
 from utils.constants import APPROPRIATION_FILENAME, BASELINE_FILENAME, JAMEF_RED
@@ -59,28 +59,27 @@ page_header(
     "MÓDULO PRIORITÁRIO",
 )
 
-with st.expander("Bases do MVP", expanded=False):
-    upload_left, upload_right = st.columns(2)
-    with upload_left:
-        baseline_raw = load_input(
-            BASELINE_FILENAME,
-            session_key="baseline_frame",
-            label="Baseline diário cliente–rota",
-            root=ROOT,
-        )
-    with upload_right:
-        appropriation_raw = load_input(
-            APPROPRIATION_FILENAME,
-            session_key="appropriation_frame",
-            label="Passagem operacional filial–etapa",
-            root=ROOT,
-        )
+with st.expander("Bases do MVP", expanded=True):
+    baseline_raw = load_partitioned_input(
+        BASELINE_FILENAME,
+        session_key="baseline_frame",
+        label="Baseline diário cliente–rota",
+        root=ROOT,
+        expected_parts=3,
+    )
+    st.divider()
+    appropriation_raw = load_input(
+        APPROPRIATION_FILENAME,
+        session_key="appropriation_frame",
+        label="Passagem operacional filial–etapa",
+        root=ROOT,
+    )
 
 if baseline_raw is None:
     status_banner(
-        "Baseline diário não carregado",
-        "Carregue o arquivo no bloco Bases do MVP para liberar filtros, gráficos "
-        "e o simulador B2C. O arquivo permanece somente na sessão.",
+        "Baseline diário ainda não consolidado",
+        "Carregue as três partes no bloco Bases do MVP e clique em Consolidar. "
+        "As análises serão liberadas somente após a validação dos schemas.",
         "warning",
     )
     st.stop()
